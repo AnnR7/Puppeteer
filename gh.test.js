@@ -1,14 +1,15 @@
 let page;
 
-describe("Github page tests", () => {
-  beforeEach(async () => {
-    page = await browser.newPage();
-    await page.goto("https://github.com/team");
-  });
+beforeEach(async () => {
+  page = await browser.newPage();
+  await page.goto("https://github.com/team");
+});
 
-  afterEach(() => {
-    page.close();
-  });
+afterEach(() => {
+  page.close();
+});
+
+describe("Github page1 tests", () => {
 
   test("The h1 header content", async () => {
     const firstLink = await page.$("header div div a");
@@ -34,13 +35,10 @@ describe("Github page tests", () => {
   });
 }); 
 
+describe("Github page2 tests", () => {
 beforeEach(async () => {
   page = await browser.newPage();
   await page.goto("https://github.com/marketplace");
-});
-
-afterEach(() => {
-  page.close();
 });
 
 test("The h1 header contant2", async () => {
@@ -61,4 +59,5 @@ test("The h1 header contant2", async () => {
     });
     const actual = await page.$eval(btnSelector2, link => link.textContent);
     expect(actual).toContain("Explore free apps");
-  });  
+  });
+});    
