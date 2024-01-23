@@ -37,7 +37,6 @@ describe("Github page1 tests", () => {
 
 describe("Github page2 tests", () => {
 beforeEach(async () => {
-  page = await browser.newPage();
   await page.goto("https://github.com/marketplace");
 });
 
